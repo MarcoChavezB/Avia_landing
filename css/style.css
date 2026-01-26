@@ -13073,9 +13073,14 @@ form .error {
 .testimonial__image {
   position: absolute;
   bottom: 0;
-  right: 16%;
+  right: -25%;
   z-index: 1;
 }
+
+.testimonial__image img{
+  transform: rotate(15deg);
+}
+
 @media (max-width: 1800px) {
   .testimonial__image {
     right: 8%;

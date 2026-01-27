@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="css/splitting.css">
     <link rel="stylesheet" href="css/nice-select.css">
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/notyf/notyf.min.js"></script>
 </head>
 
 <body>
@@ -935,19 +936,19 @@
                                     <p class="mt-3">Estamos aquí para responder a tus preguntas y brindarte la información.
                                     </p>
                                 </div>
-                                <form id="contact_form">
-                                    <input type="text" placeholder="Nombre">
-                                    <input type="email" placeholder="Correo Electrónico">
-                                    <textarea name="masage" id="masage" placeholder="Mensaje"></textarea>
-                                    <button class="btn-one rounded-0 w-100" data-splitting="" data-text="Enviar">Enviar</button>
-                                    <script>
-                                        document.getElementById('contact_form').addEventListener('submit', function() {
-                                            var btn = document.getElementById('btn-enviar');
-                                            btn.disabled = true;
-                                            btn.textContent = 'Enviando...';
-                                        });
-                                    </script>
+                                <form id="contact_form" action="include/sendmail.php" method="post">
+                                    <input type="text" name="form_name" placeholder="Nombre" required>
+                                    <input type="email" name="form_email" placeholder="Correo Electrónico" required>
+                                    <textarea name="form_message" id="masage" placeholder="Mensaje" required></textarea>
+                                    <button id="btn-enviar" class="btn-one rounded-0 w-100" data-splitting="" data-text="Enviar">Enviar</button>
                                 </form>
+                                <script>
+                                    document.getElementById('contact_form').addEventListener('submit', function() {
+                                        var btn = document.getElementById('btn-enviar');
+                                        btn.disabled = true;
+                                        btn.textContent = 'Enviando...';
+                                    });
+                                </script>
                             </div>
                         </div>
                         <div class="col-lg-6">

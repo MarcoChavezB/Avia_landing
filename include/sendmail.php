@@ -2,10 +2,7 @@
 require_once __DIR__ . '/../vendor/autoload.php';
 
 session_start();
-if (isset($_SESSION['last_sent']) && (time() - $_SESSION['last_sent'] < 60)) {
-    header("Location: /index.html?success=2");
-    exit;
-}
+
 $_SESSION['last_sent'] = time();
 
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../');

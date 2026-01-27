@@ -13100,7 +13100,7 @@ form .error {
 .testimonial__image {
   position: absolute;
   bottom: 0;
-  right: -25%;
+  right: -20%;
   z-index: 1;
 }
 

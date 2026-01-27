@@ -34,16 +34,6 @@ CSS TABLE OF CONTENTS
 	/* ---------------------------------------------------------------------- */
 	/* --------------------------- Start Demo Switcher  --------------------- */
 	/* ---------------------------------------------------------------------- */
-	var showSwitcher = true;
-	var $body = $('body');
-	var $style_switcher = $('#style-switcher');
-	if (!$style_switcher.length && showSwitcher) {
-		$.ajax({
-			url: "color-switcher/style-switcher.html",
-			success: function (data) { $body.append(data); },
-			dataType: 'html'
-		});
-	}
 
 	/* ---------------------------------------------------------------------- */
 	/* ----------------------------- En Demo Switcher  ---------------------- */
@@ -55,15 +45,6 @@ CSS TABLE OF CONTENTS
 		root.setAttribute("data-theme", color);
 	}
 	// Color mood area end here ***
-
-	// Preloader area start here ***
-	const loader = () => {
-		$(window).on("load", function () {
-			$("#preloader").addClass("loaded");
-			$("#preloader").delay(500).fadeOut();
-		});
-	};
-	loader();
 	// Preloader area end here ***
 
 	// Header area start here ***

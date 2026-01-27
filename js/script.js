@@ -30,13 +30,10 @@ CSS TABLE OF CONTENTS
 
 (function ($) {
 	("use strict");
-    console.log("Hello world!");
 	
 	/* ---------------------------------------------------------------------- */
 	/* --------------------------- Start Demo Switcher  --------------------- */
 	/* ---------------------------------------------------------------------- */
-	var showSwitcher = true;
-	var $body = $('body');
 	var $style_switcher = $('#style-switcher');
 	if (!$style_switcher.length && showSwitcher) {
 		$.ajax({

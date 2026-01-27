@@ -30,7 +30,7 @@ CSS TABLE OF CONTENTS
 
 (function ($) {
 	("use strict");
-
+    console.log("Hello world!");
 	
 	/* ---------------------------------------------------------------------- */
 	/* --------------------------- Start Demo Switcher  --------------------- */

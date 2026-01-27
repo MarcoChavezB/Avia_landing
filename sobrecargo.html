@@ -515,15 +515,15 @@
     
     <script>
         const gallery = document.getElementById('sobrecargoGallery');
-        const imagePath = 'images/sobrecargo/gallery/';
-        const imagePrefix = 'sobrecargo';
-        const imageExtension = '.png';
-        const totalImages = 10;
+        const imagePath = 'images/gallery/sobrecargo/';
+        const imagePrefix = 'sob';
+        const imageExtension = '.jpg';
+        const totalImages = 14;
     
         for (let i = 1; i <= totalImages; i++) {
             const img = document.createElement('img');
             img.src = `${imagePath}${imagePrefix}${i}${imageExtension}`;
-            img.alt = `Sobrecargo ${i}`;
+            img.alt = `sob ${i}`;
             img.loading = 'lazy';
             gallery.appendChild(img);
         }

@@ -16,7 +16,6 @@
     <link rel="stylesheet" href="css/splitting.css">
     <link rel="stylesheet" href="css/nice-select.css">
     <link rel="stylesheet" href="css/style.css">
-    <script src="https://cdn.jsdelivr.net/npm/notyf/notyf.min.js"></script>
 </head>
 
 <body>
@@ -928,13 +927,6 @@
                                     <textarea name="form_message" id="masage" placeholder="Mensaje" required></textarea>
                                     <button id="btn-enviar" class="btn-one rounded-0 w-100" data-splitting="" data-text="Enviar">Enviar</button>
                                 </form>
-                                <script>
-                                    document.getElementById('contact_form').addEventListener('submit', function() {
-                                        var btn = document.getElementById('btn-enviar');
-                                        btn.disabled = true;
-                                        btn.textContent = 'Enviando...';
-                                    });
-                                </script>
                             </div>
                         </div>
                         <div class="col-lg-6">
@@ -1068,25 +1060,6 @@
             <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"></path>
         </svg>
     </div>
-    
-    <script>
-        const notyf = new Notyf();
-        const params = new URLSearchParams(window.location.search);
-        if (params.get('success') === '1') {
-            notyf.success('Correo recibido, ¡gracias por contactarnos!');
-            params.delete('success');
-            window.history.replaceState({}, document.title, window.location.pathname + (params.toString() ? '?' + params.toString() : ''));
-        } else if (params.get('success') === '0') {
-            notyf.error('Error al enviar el correo.');
-            params.delete('success');
-            window.history.replaceState({}, document.title, window.location.pathname + (params.toString() ? '?' + params.toString() : ''));
-        } else if (params.get('success') === '2') {
-            notyf.error('Por favor espera antes de enviar otro mensaje.');
-            params.delete('success');
-            window.history.replaceState({}, document.title, window.location.pathname + (params.toString() ? '?' + params.toString() : ''));
-        }
-    </script>
-
     <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="js/jquery-3.7.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/meanmenu.js"></script>

@@ -411,8 +411,6 @@
                     </div>
                 </div>
                 <div class="gallery pt-100" id="sobrecargoGallery"></div>
-            
-                
             </div>
         </section>
 
@@ -451,18 +449,60 @@
     
     <script>
         const gallery = document.getElementById('sobrecargoGallery');
-        const imagePath = 'images/gallery/sobrecargo/';
-        const imagePrefix = 'sob';
-        const imageExtension = '.jpg';
-        const totalImages = 14;
-    
-        for (let i = 1; i <= totalImages; i++) {
-            const img = document.createElement('img');
-            img.src = `${imagePath}${imagePrefix}${i}${imageExtension}`;
-            img.alt = `sob ${i}`;
-            img.loading = 'lazy';
-            gallery.appendChild(img);
-        }
+        // Arreglo de elementos de la galería: tipo 'img' o 'video'
+        const galleryItems = [
+            // Imágenes
+            { type: 'img', src: 'images/gallery/sobrecargo/sob1.jpg', alt: 'sob 1' },
+            { type: 'video', src: 'https://res.cloudinary.com/ddmotfv1k/video/upload/v1769820037/WhatsApp_Video_2026-01-27_at_5.31.51_PM_jh6khg.mp4', title: 'Video 1' },
+            { type: 'img', src: 'images/gallery/sobrecargo/sob2.jpg', alt: 'sob 2' },
+            { type: 'img', src: 'images/gallery/sobrecargo/sob3.jpg', alt: 'sob 3' },
+            { type: 'img', src: 'images/gallery/sobrecargo/sob4.jpg', alt: 'sob 4' },
+            { type: 'img', src: 'images/gallery/sobrecargo/sob5.jpg', alt: 'sob 5' },
+            { type: 'video', src: 'https://res.cloudinary.com/ddmotfv1k/video/upload/v1769820037/WhatsApp_Video_2026-01-27_at_5.35.33_PM_cx6m82.mp4', title: 'Video 3' },
+            { type: 'img', src: 'images/gallery/sobrecargo/sob6.jpg', alt: 'sob 6' },
+            { type: 'img', src: 'images/gallery/sobrecargo/sob7.jpg', alt: 'sob 7' },
+            { type: 'video', src: 'https://res.cloudinary.com/ddmotfv1k/video/upload/v1769820037/WhatsApp_Video_2026-01-27_at_5.35.06_PM_cvz2gc.mp4', title: 'Video 2' },
+            { type: 'img', src: 'images/gallery/sobrecargo/sob8.jpg', alt: 'sob 8' },
+            { type: 'img', src: 'images/gallery/sobrecargo/sob9.jpg', alt: 'sob 9' },
+            { type: 'img', src: 'images/gallery/sobrecargo/sob10.jpg', alt: 'sob 10' },
+            { type: 'img', src: 'images/gallery/sobrecargo/sob11.jpg', alt: 'sob 11' },
+            { type: 'img', src: 'images/gallery/sobrecargo/sob12.jpg', alt: 'sob 12' },
+            { type: 'img', src: 'images/gallery/sobrecargo/sob13.jpg', alt: 'sob 13' },
+            { type: 'img', src: 'images/gallery/sobrecargo/sob14.jpg', alt: 'sob 14' },
+            { type: 'video', src: 'https://res.cloudinary.com/ddmotfv1k/video/upload/v1769820037/WhatsApp_Video_2026-01-27_at_5.31.30_PM_kq9bve.mp4', title: 'Video 4' },
+
+        ];
+
+        galleryItems.forEach(item => {
+            if (item.type === 'img') {
+                const img = document.createElement('img');
+                img.src = item.src;
+                img.alt = item.alt || '';
+                img.loading = 'lazy';
+                gallery.appendChild(img);
+            } else if (item.type === 'video') {
+                // Usamos un iframe para videos de YouTube, puedes cambiar a <video> si es archivo mp4
+                const videoWrapper = document.createElement('div');
+                videoWrapper.style.margin = '10px 0';
+                videoWrapper.style.position = 'relative';
+                videoWrapper.style.paddingBottom = '56.25%';
+                videoWrapper.style.height = '0';
+                videoWrapper.style.overflow = 'hidden';
+                const iframe = document.createElement('iframe');
+                iframe.src = item.src;
+                iframe.title = item.title || 'Video';
+                iframe.frameBorder = '0';
+                iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+                iframe.allowFullscreen = true;
+                iframe.style.position = 'absolute';
+                iframe.style.top = '0';
+                iframe.style.left = '0';
+                iframe.style.width = '100%';
+                iframe.style.height = '100%';
+                videoWrapper.appendChild(iframe);
+                gallery.appendChild(videoWrapper);
+            }
+        });
     </script>
 
     

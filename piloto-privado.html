@@ -193,7 +193,7 @@
                                     <p class="blog-details__text-2">El Curso de Piloto Privado está diseñado para quienes desean iniciarse en la aviación de manera formal, progresiva y con una preparación sólida. Esta modalidad permite al alumno desarrollar sus conocimientos y habilidades a lo largo de un proceso completo, ideal para comprender a fondo los principios del vuelo y la operación segura de una aeronave.</p>
                                     <p class="blog-details__text-2">Durante seis meses de formación teórica, el estudiante cursa nueve materias fundamentales que construyen la base del piloto. Entre ellas se encuentran aerodinámica, meteorología, navegación aérea y reglamentación aérea, que permiten entender cómo y por qué vuela un avión, cómo planear rutas y cómo operar dentro del marco legal de la aviación.</p>
                                     <p class="blog-details__text-2">El plan de estudios también incluye aeronaves y motores, operaciones aeronáuticas, telecomunicaciones y control de tráfico aéreo, preparando al alumno para interactuar correctamente con los servicios aeronáuticos y operar con conciencia del entorno real de vuelo. Además, el inglés técnico aeronáutico forma parte esencial del programa, fortaleciendo la comunicación en un contexto internacional.</p>
-                                    <p class="blog-details__text-2">La preparación práctica se refuerza con horas de simulador, donde el alumno practica procedimientos y maniobras en un ambiente controlado, y con horas de vuelo real en aeronave Cessna 172, una de las plataformas de entrenamiento más utilizadas en el mundo, ideal para desarrollar precisión, confianza y criterio como piloto.</p>
+                                    <p class="blog-details__text-2">La preparación práctica se refuerza con horas de simulador, donde el alumno práctica  procedimientos y maniobras en un ambiente controlado, y con horas de vuelo real en aeronave Cessna 172, una de las plataformas de entrenamiento más utilizadas en el mundo, ideal para desarrollar precisión, confianza y criterio como piloto.</p>
                                     <p class="blog-details__text-2">Al concluir el curso, el alumno obtiene su certificado y diploma, así como la Licencia Federal de Piloto Privado, expedida por la Agencia Federal de Aviación Civil (AFAC), que lo acredita oficialmente para ejercer como piloto privado.</p>
                                     <p class="blog-details__text-2">Este programa es el primer gran paso para quienes buscan volar por pasión, formación personal o como base para continuar una carrera profesional en la aviación, siempre bajo estándares de seguridad, disciplina y excelencia.</p>
 
@@ -392,7 +392,7 @@
                                         <li class="pricing-list-item"><i class="fa-light fa-check"></i><span class="item-label">Orden de examen teórico</span> <span class="item-price">$6,500.00</span></li>
                                         <li class="pricing-list-item"><i class="fa-light fa-check"></i><span class="item-label">Centro Evaluador Teórico</span> <span class="item-price">$2,500.00</span></li>
                                         
-                                        <li ><span class="mt-25" >PRACTICA DE VUELO</span></li>
+                                        <li ><span class="mt-25" >PRÁCTICA DE VUELO</span></li>
                                         <li class="pricing-list-item"><i class="fa-light fa-check"></i><span class="item-label">Curso Pre - Vuelo</span> <span class="item-price">$1,000.00</span></li>
                                         <li class="pricing-list-item"><i class="fa-light fa-check"></i><span class="item-label">Hora Visual CessnaC172 (44hrs.)</span> <span class="item-price">(c/u) $ 4,500.00</span></li>
                                         <li class="pricing-list-item"><i class="fa-light fa-check"></i><span class="item-label">Orden de examen de vuelo</span> <span class="item-price">$ 7,100.00</span></li>
@@ -475,19 +475,46 @@
     
     <script>
         const gallery = document.getElementById('sobrecargoGallery');
-        const imagePath = 'images/gallery/piloto/';
-        const imagePrefix = 'pil';
-        const imageExtension = '.jpg';
-        const totalImages = 7;
-    
-        for (let i = 1; i <= totalImages; i++) {
-            const img = document.createElement('img');
-            img.src = `${imagePath}${imagePrefix}${i}${imageExtension}`;
-            img.alt = `piloto ${i}`;
-            img.loading = 'lazy';
-            gallery.appendChild(img);
-        }
+        // Arreglo de elementos de la galería: tipo 'img' o 'video'
+        const galleryItems = [
+            // Imágenes
+            { type: 'img', src: 'images/gallery/piloto/pil1.jpg', alt: 'pil 1' },
+            { type: 'video', src: 'https://res.cloudinary.com/ddmotfv1k/video/upload/v1770136260/WhatsApp_Video_2026-02-01_at_10.13.00_PM_iwdwik.mp4', title: 'Video 1' },
+            { type: 'img', src: 'images/gallery/piloto/pil2.jpg', alt: 'pil 2' },
+        ];
+
+        galleryItems.forEach(item => {
+            if (item.type === 'img') {
+                const img = document.createElement('img');
+                img.src = item.src;
+                img.alt = item.alt || '';
+                img.loading = 'lazy';
+                gallery.appendChild(img);
+            } else if (item.type === 'video') {
+                // Usamos un iframe para videos de YouTube, puedes cambiar a <video> si es archivo mp4
+                const videoWrapper = document.createElement('div');
+                videoWrapper.style.margin = '10px 0';
+                videoWrapper.style.position = 'relative';
+                videoWrapper.style.paddingBottom = '56.25%';
+                videoWrapper.style.height = '0';
+                videoWrapper.style.overflow = 'hidden';
+                const iframe = document.createElement('iframe');
+                iframe.src = item.src;
+                iframe.title = item.title || 'Video';
+                iframe.frameBorder = '0';
+                iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+                iframe.allowFullscreen = true;
+                iframe.style.position = 'absolute';
+                iframe.style.top = '0';
+                iframe.style.left = '0';
+                iframe.style.width = '100%';
+                iframe.style.height = '100%';
+                videoWrapper.appendChild(iframe);
+                gallery.appendChild(videoWrapper);
+            }
+        });
     </script>
+
 
     
     <script>
